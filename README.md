@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ####Notice: 
- Open browser console to see test reuslt.Please use browser plugin to disable CORS error.
+Open browser console to see test reuslt.Please use browser plugin to disable CORS error.
 
 ## Available Scripts
 
