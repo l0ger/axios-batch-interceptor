@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import runTest from "./services/interceptors/batchInterceptor/pureTest";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        runTest();
+    }, []);
+    return (
+        <div>
+            <div className='app'>
+                <p className='messageBox'>
+                    Open your console to see result.
+                </p>
+            </div>
+        </div>
+    );
 }
 
 export default App;
