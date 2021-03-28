@@ -28,7 +28,7 @@ export const resolveBatchRequests = (response, queue) => {
 export const combineRequestsParam = allRequests =>{
     let finalParams = [];
     allRequests.forEach(request => {
-        finalParams = finalParams.concat(request.ids);
+        finalParams = finalParams.concat(request.config.params.ids);
     });
     const temp = new Set(finalParams);
     return Array.from(temp).join(',');
