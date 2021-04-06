@@ -46,7 +46,7 @@ const batchInterceptor = (instance) => {
     });
     instance.interceptors.response.use(response => response, error => {
         const {response, req} = error;
-        if (response && response.statusText==="OK" && isBatchRequest(response.config)) {
+        if (response && (response.statusText==="OK" || response.status===200) && isBatchRequest(response.config)) {
             const requestRealResponse = getRequestResponse(req, response.data.items);
             if (requestRealResponse.missedFiles.length) {
                 return Promise.reject(getNotFoundFileRejectMessage(requestRealResponse.missedFiles));
@@ -54,6 +54,7 @@ const batchInterceptor = (instance) => {
             const fakeResponse = generateFakeResponse(req.config, requestRealResponse.foundFiles)
             return Promise.resolve(fakeResponse);
         }
+        console.log(error);
         return Promise.reject(error);
     });
 }
